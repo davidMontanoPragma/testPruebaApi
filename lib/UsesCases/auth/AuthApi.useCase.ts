@@ -1,5 +1,5 @@
 
-import EnvHelper from '../../helpers/env.helper';
+import EnvHelper from '../../helpers/common/env.helper';
 import { HTTPtHelper } from '../../helpers';
 import { IHttpHelper, ILoginRequest, IAuthApiUseCase } from '../../interfaces';
 import { APIRequestContext, APIResponse } from '@playwright/test';

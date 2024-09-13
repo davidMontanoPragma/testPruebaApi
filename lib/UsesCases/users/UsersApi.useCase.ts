@@ -1,7 +1,7 @@
 import { APIRequestContext, APIResponse } from "@playwright/test";
 import { IHttpHelper, IUser, IUserApiUsesCase } from "../../interfaces";
 import { HTTPtHelper } from "../../helpers";
-import EnvHelper from "../../helpers/env.helper";
+import EnvHelper from "../../helpers/common/env.helper";
 
 export class UserApiUsesCase implements IUserApiUsesCase {
     private httpHelper: IHttpHelper;

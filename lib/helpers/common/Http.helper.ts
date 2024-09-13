@@ -1,5 +1,5 @@
 import { APIRequestContext, APIResponse } from '@playwright/test';
-import { IHttpHelper } from '../../../interfaces';
+import { IHttpHelper } from '../../interfaces';
 
 export class HTTPtHelper implements IHttpHelper {
     private request: APIRequestContext;
@@ -17,10 +17,10 @@ export class HTTPtHelper implements IHttpHelper {
         return response;
     }
     
-    async httpGet(headers: { [key: string]: string; } | undefined, baseUrl: string, paht: string): Promise<APIResponse> {
+    async httpGet(query: string, baseUrl: string, paht: string): Promise<APIResponse> {
         
         const response = await this.request.get(`${baseUrl}/${paht}`, {
-            headers: headers,
+            // headers: headers,
         });
 
         return response;

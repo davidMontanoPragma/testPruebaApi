@@ -1,1 +1,1 @@
-export { HTTPtHelper } from '../helpers/Http.helper';
+export { HTTPtHelper } from './common/Http.helper';

@@ -8,3 +8,4 @@ export type { IUserList } from './users/UserList.interface';
 
 export type { IHttpHelper } from './common/HttpHelper.interface';
 export type { IResponseHttp } from './common/Response.interface';
+export type { IReportTestHelper } from './common/ReportTestHelper.interface';

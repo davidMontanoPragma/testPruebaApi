@@ -1,10 +1,13 @@
-import { test, expect, APIRequestContext, request } from '@playwright/test';
+import { test, expect, APIRequestContext, request, APIResponse } from '@playwright/test';
 import { AuthApiUseCase } from '../../lib/UsesCases';
 import { ILoginResponse, IAuthApiUseCase } from '../../lib/interfaces';
 
 test.describe('Login API Tests', () => {
     let apiContext: APIRequestContext;
     let userApi: IAuthApiUseCase;
+    let response: APIResponse;
+    let header: { [key: string]: string; };
+    let status: number;
 
     test.beforeAll(async () => {
         apiContext = await request.newContext({
@@ -23,8 +26,11 @@ test.describe('Login API Tests', () => {
     test('Should login with valid credentials', async () => {
 
         await test.step('Crear usuario', async () => {
-            const response = await userApi.register('eve.holt@reqres.in', 'cityslicka');
+            response = await userApi.register('eve.holt@reqres.in', 'cityslicka');
             const respHttp: ILoginResponse = await response.json();
+
+            header = response.headers();
+            status = response.status();
 
             console.log('Registro', respHttp);
 

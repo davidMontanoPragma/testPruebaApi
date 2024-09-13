@@ -1,10 +1,11 @@
-import { test, expect, APIRequestContext, request } from '@playwright/test';
+import { test, expect, APIRequestContext, request, APIResponse } from '@playwright/test';
 import { UserApiUsesCase } from '../../lib/UsesCases';
 import { IResponseHttp, IUser, IUserApiUsesCase, IUserList } from '../../lib/interfaces';
 
 test.describe('User API Tests', () => {
     let apiContext: APIRequestContext;
     let userApi: IUserApiUsesCase;
+    let response: APIResponse;
 
     test.beforeAll(async () => {
         apiContext = await request.newContext({
@@ -21,7 +22,7 @@ test.describe('User API Tests', () => {
     });
 
     test('Validado la lista de usuarios', async () => {
-        const response = await userApi.list();
+        response = await userApi.list();
         const respHttp: IResponseHttp<IUserList[]> = await response.json();
 
         console.log('Lista de usuarios', respHttp);
